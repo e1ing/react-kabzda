@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 
 type PropsType = {
     on: boolean
+    onChange?: (on:boolean) => void
 }
 
-function OnOff (props: PropsType){
+export function OnOff (props: PropsType){
 
     let [on, setOn] = useState (false);
 
