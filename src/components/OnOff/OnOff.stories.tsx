@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {action} from '@storybook/addon-actions';
-import {Button} from '@storybook/react/demo';
 import {OnOff} from "./OnOff";
 
 export default{
