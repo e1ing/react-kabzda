@@ -1,0 +1,18 @@
+.select span.main{
+border: 1px solid black;
+    display: inline-block;
+min-height: 20px;
+    min-height: 40px;
+}
+
+.items{
+    position: absolute; /*накладывается сверху*/
+    padding: 5px;
+    border: 1px black solid;
+}
+
+.item.selected{
+    background-color: blue;
+    color: white;
+}
+

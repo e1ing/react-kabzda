@@ -13,6 +13,6 @@ export const OnMode = () => <OnOff on ={true} onChange={callback}/>
 export const OffMode = () => <OnOff on ={false} onChange={callback}/>
 
 export const ModeChanging = () => {
-    const [value, setValue] = useState (true);
+    const [value, setValue] = useState <boolean>(true);
     return <OnOff on ={value} onChange={setValue}/>
 };

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-type PropsType = {
-    on: boolean
-    onChange: (on: boolean) => {}
+export type PropsType = {
+    onChange: (on: boolean) => void
+    defaultOn?: boolean
 }
 
 export function UncontrolledOnOff (props: PropsType){
