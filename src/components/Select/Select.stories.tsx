@@ -1,6 +1,4 @@
 import React, {ChangeEvent, useState} from 'react';
-
-import {action} from '@storybook/addon-actions';
 import {Select} from "./Select";
 
 export default {
@@ -12,7 +10,6 @@ export const SelectWithValue = () => {
 
 
     const changeHandler = (value: string)=> {
-        debugger
         setValue(value)
     }
 
