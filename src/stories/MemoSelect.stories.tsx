@@ -29,5 +29,5 @@ export const UseMemoSelect = (props: {cities: Array<CityInfoType>}) => {
 * 2) одна страна  (ввести id страны и фильтровать по id)
 * 3) численность > 10 млн
 * 4) плюс накрутить счётчик
-* 5) использовать useMemo и React.memo как в UseMemo.stories.tsx
+* 5) использовать useMemo и React.memo как в UseMemoUseCallback.stories.tsx
 * */
