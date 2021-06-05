@@ -15,7 +15,7 @@ export const Example1 = () => {
     const initValue = useMemo(generateData,[])
 
     const [counter, setCounter] = useState(generateData)
-    
+
     return <>
         <button onClick={() => setCounter( (state: number) => state+1)}> +</button>
         {counter}
