@@ -1,0 +1,52 @@
+.digitalClock{
+    margin: 20px;
+    font-family: "Agency FB";
+    width: 90px;
+    padding: 8px;
+    border: solid #61dafb;
+    font-size: 30px;
+    font-weight: bolder;
+    color: darkblue;
+}
+
+.analogClock{
+    margin: 20px;
+    width: 105px;
+    height: 105px;
+    border: solid 1px #000;
+    border-radius: 50%;
+    position: relative;
+    background: lemonchiffon;
+}
+
+.secondsHand{
+    position: absolute;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform-origin:bottom left;
+    border-left:solid 1px green;
+}
+.minutesHand{
+    position: absolute;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform-origin:bottom  left;
+    border-left:solid 1px #cc0000;
+}
+.hoursHand{
+    position: absolute;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    top: 15px;
+    transform-origin:bottom  left;
+    border-left:solid 2px #000;
+}
+
+.btn{
+    margin: 20px;
+    width: 100px;
+    height: 30px;
+}
