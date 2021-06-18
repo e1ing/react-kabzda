@@ -1,16 +1,20 @@
-import {useEffect} from "react"
-import {useState} from "react"
-import s from "./Clock.module.css"
+import React from 'react';
+import {useEffect, useState} from "react"
+import {DigitalClockView} from "./DigitalClockView";
+import {AnalogClockView} from "./AnalogClockView";
 
 
-type PropsType = {}
+type PropsType = {
+    mode: 'digital' | 'analog'
+}
 
-const get2digitString = (num: number) => num < 10 ? "0" + num : num
+export type ClockViewType = {
+    date: Date
+}
 
-export const Clock: React.FC<PropsType> = (props) => {
+export const Clock: React.FC<PropsType> = ({mode}) => {
 
     const [date, setDate] = useState(new Date())
-    const [mode, setMode] = useState<boolean>(true)
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -32,31 +36,20 @@ export const Clock: React.FC<PropsType> = (props) => {
         transform: `rotate(${date.getHours() * 30}deg)`
     }
 
-    let onChangeMode = () => {
-        setMode(!mode)
+
+    let view;
+    switch (mode) {
+        case 'analog':
+            view = <AnalogClockView date={date}/>
+            break;
+        case 'digital':
+        default:
+            view = <DigitalClockView date={date}/>
     }
 
+    return <div>
+        {view}
+    </div>
 
-    return (
-        <>
-            <button onClick={onChangeMode} className={s.btn}>{mode? "Digital clock" : "Analog Clock"}</button>
-{}
-            {mode ?
-                <div className={s.digitalClock}>
-                    <span>{get2digitString(date.getHours())}</span>
-                    :
-                    <span>{get2digitString(date.getMinutes())}</span>
-                    :
-                    <span>{get2digitString(date.getSeconds())}</span>
-                </div>
-                :
-                <div className={s.analogClock}>
-                    <div className={s.secondsHand} style={secondsStyle}/>
-                    <div className={s.minutesHand} style={minutesStyle}/>
-                    <div className={s.hoursHand} style={hoursStyle}/>
-                </div>
-            }
-        </>
 
-    )
 }
