@@ -63,3 +63,63 @@ export const SetTimeoutExample = () => {
         <button onClick={() => setCounter((state: number) => counter + 1)}> +</button>*/}
     </>
 }
+
+export const ResetEffectExample = () => {
+    const [counter, setCounter] = useState(1)
+    console.log("Component rendered")
+
+    useEffect(() => {
+       console.log('Effect occurred: '+ counter)
+
+        return () => {
+           console.log('Reset Effect') //перед смертью компонента выбрасывает это - сбрасывается эффект или при повторном вызове эффекта
+        }
+    }, [counter])
+
+    const increase = () => {setCounter(counter+1)}
+    return <>
+        Hello, counter: {counter} <button onClick={() => {setCounter(counter+1)}}>+</button>
+    </>
+}
+
+
+export const KeysTrackerExample = () => {
+    const [text, setText] = useState("")
+    console.log("Component rendered with" + text)
+
+    useEffect(() => {
+         const handler = (e: KeyboardEvent) => {
+             console.log(e.key)
+             setText(text+e.key)
+         };
+        window.addEventListener('keypress', handler)
+        })
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [text])
+
+    return <>
+        Type text: {text}
+    </>
+}
+
+
+export const SetTimeoutExample = () => {
+    const [text, setText] = useState("")
+    console.log("Component rendered with" + text)
+
+    useEffect(() => {
+        const interaslId = setTimeout(()=>{
+            console.log("Timeout expired")
+            setText('3 seconds passed')
+        }, 3000)
+    return () => {
+        clearTimeout(interaslId)
+    }
+}, [text])
+
+return <>
+    Type text: {text}
+</>
+}
