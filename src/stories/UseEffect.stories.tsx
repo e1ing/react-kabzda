@@ -88,12 +88,12 @@ export const KeysTrackerExample = () => {
     console.log("Component rendered with" + text)
 
     useEffect(() => {
-         const handler = (e: KeyboardEvent) => {
-             console.log(e.key)
-             setText(text+e.key)
-         };
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText(text + e.key)
+        };
         window.addEventListener('keypress', handler)
-        })
+
         return () => {
             window.removeEventListener('keypress', handler)
         }
@@ -105,7 +105,7 @@ export const KeysTrackerExample = () => {
 }
 
 
-export const SetTimeoutExample = () => {
+export const SetTimeoutExample2 = () => {
     const [text, setText] = useState("")
     console.log("Component rendered with" + text)
 
